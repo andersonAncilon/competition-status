@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-3 mb-2">
     <div
-      v-if="standing.position"
+      v-if="standing"
       :class="['card', standing.position === 1 || standing.position === 2 || standing.position === 3  ? 'border-success' : '' ]"
     >
       <ul class="list-group list-group-flush">

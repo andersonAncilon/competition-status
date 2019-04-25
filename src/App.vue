@@ -11,6 +11,7 @@
           aria-label="Caixa de texto para pesquisar a competição pelo seu código"
           aria-describedby="inputGroup-sizing-lg"
           v-model="competitionCode"
+          @keyup.enter="loadCompetitionData(competitionCode)"
         >
       </div>
       <button
@@ -26,8 +27,12 @@
         >Nome da competição: {{ competitionData.area.name }} {{ competitionData.name }}</h2>
         <h2 class="mt-5 text-danger" v-if="standings.length === 0">Nenhum resultado disponível</h2>
         <div class="row">
-          <template v-for="(standing, index) in standings">
-            <Card :key="index" v-for="(std, index) in standing.table" :standing="std"/>
+          <template v-for="(standing) in standings">
+            <Card
+              :key="index + 1 * Math.random()"
+              v-for="(std, index) in standing.table"
+              :standing="std"
+            />
           </template>
         </div>
       </template>
